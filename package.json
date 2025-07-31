@@ -1,0 +1,17 @@
+{
+  "name": "inspyr_playbooks_2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:test": "nodemon mustache-example/test.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "chokidar": "^4.0.3",
+    "mustache": "^4.2.0",
+    "nodemon": "^3.1.10"
+  }
+}
