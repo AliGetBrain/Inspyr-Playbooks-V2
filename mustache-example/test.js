@@ -1,18 +1,35 @@
 const { generateAndSaveHTML, setupWatcher } = require("../Utils/generate.js");
 
 const template = `
-<h1>Welcome to Brain!</h1>
-<p>Hi there {{ endearment }},</p>
-<p>Thank you, {{ contact.first_name }} {{ contact.last_name }}</p>
-{{#emergency}}
-<p>BALLISTIC MISSILE THREAT INBOUND TO HAWAII.</p>
-{{/emergency}}
-{{^emergency}}
-<p>{{ affirmation }}</p>
-{{/emergency}}
-{{#reasons}}
-<li>{{ . }}</li>
-{{/reasons}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Brain!</title>
+</head>
+<body>
+    <h1>Welcome to Brain!</h1>
+    {{#endearment}}
+    <p>Hi there {{ endearment }},</p>
+    {{/endearment}}
+    <p>Thank you, {{ contact.first_name }} {{ contact.last_name }}</p>
+    
+    {{#emergency}}
+    <p>THIS IS AN EMERGENCY</p>
+    {{/emergency}}
+    
+    {{^emergency}}
+    <p>{{ affirmation }}</p>
+    {{/emergency}}
+    
+    <ul>
+        {{#reasons}}
+        <li>{{ . }}</li>
+        {{/reasons}}
+    </ul>
+</body>
+</html>
 `;
 
 const data = {
@@ -27,7 +44,7 @@ const data = {
 };
 
 function regenerate() {
-  generateAndSaveHTML(template, data, "testing");
+  generateAndSaveHTML(template, data, "test");
 }
 
 setupWatcher(regenerate);
