@@ -5,7 +5,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev:test": "nodemon mustache-example/test.js",
-    "dev:invoice1": "nodemon Email-Templates/invoice1.js"
+    "dev:invoice1": "nodemon Email-Templates/invoice1.js",
+    "dev:invoice2": "nodemon Email-Templates/invoice2.js",
+    "dev:invoice3": "nodemon Email-Templates/invoice3.js",
+    "dev:invoice4": "nodemon Email-Templates/invoice4.js",
+    "dev:invoice5": "nodemon Email-Templates/invoice5.js",
+    "dev:invoice6": "nodemon Email-Templates/invoice6.js",
+    "dev:invoice7": "nodemon Email-Templates/invoice7.js"
   },
   "author": "",
   "license": "ISC",

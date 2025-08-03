@@ -33,10 +33,10 @@ function setupWatcher(onChangeCallback) {
 
   watcher
     .on("change", (path) => {
-      console.log(`File ${path} has changed, regenerating HTML...`);
+      console.log(`File {path} has changed, regenerating HTML...`);
       onChangeCallback();
     })
-    .on("error", (error) => console.error(`Watcher error: ${error}`))
+    .on("error", (error) => console.error(`Watcher error: {error}`))
     .on("ready", () =>
       console.log("Initial scan complete. Ready for changes...")
     );

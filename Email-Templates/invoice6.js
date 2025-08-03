@@ -21,31 +21,44 @@ const template = `
             </tr>
             <tr>
               <td>
-                <h2 style="margin: 0 0 15px 0; font-weight: 600; letter-spacing: 0.025em;"><span style="color: {{{primaryColor}}};">NEW</span> INVOICE RECORD</h2>
+                 <h2 style="margin: 0 0 15px 0; font-weight: 600; letter-spacing: 0.025em;">OVERDUE INVOICE<span style="color: {{primaryColor}};"> REMINDER</span></h2>
               </td>
             </tr>
         </table>
     </div>  
-     
+    
     <!-- Message Section -->
     <div style="margin-bottom: 12px; padding: 24px; background-color: white; border-radius: 8px; color: #4b5563; font-family: Arial, Helvetica, sans-serif;">
         <p style="margin: 0 0 16px 0; font-size: 1rem; font-weight: 500;">Hello,</p>
-
-        <p style="margin: 0 0 16px 0; font-size: 1rem; line-height: 1.6;">
-            I hope you're doing well! Please find attached <span style="font-weight: 600; color: #4b5563;">Invoice #{{{invoiceNumber}}}</span> for your records. <br>
-            This invoice is due on <span style="font-weight: 600; color: #4b5563;">{{{dueDate}}}</span>. Let us know if you have any questions—we're happy to help.
-        </p>
         
         <p style="margin: 0 0 16px 0; font-size: 1rem; line-height: 1.6;">
-          <strong> If any changes are required to the invoice delivery email, please be sure to 'Reply All' to this communication. </strong>
+        We are reaching back out to you for an update on the invoice listed below as it has exceeded net terms.
         </p>
-       
+
+        <ul style="font-family: Arial, Helvetica, sans-serif; padding-left: 20px; margin-bottom: 20px;">
+                    <li style="margin: 0 0 16px 0; font-size: 1rem; line-height: 1.6">
+                        If a payment has already been made, please provide the payment date, the amount, and the payment delivery method.
+                    </li>
+                    <li style="margin: 0 0 16px 0; font-size: 1rem; line-height: 1.6">
+                        If payment was made via check, please provide the address the check was mailed to.
+                    </li>
+                    <li style="margin: 0 0 16px 0; font-size: 1rem; line-height: 1.6">
+                        If payment was made via ACH, please provide the date, the name of the bank, and account holder from which payment originated.
+                    </li>
+                    <li style="margin: 0 0 16px 0; font-size: 1rem; line-height: 1.6">
+                        If payment has not been made, please provide an expected payment date for our records.
+                    </li>
+                    <li style="margin: 0 0 16px 0; font-size: 1rem; line-height: 1.6">
+                        If you recently had a conversation with us and have taken action, kindly disregard this message.
+                    </li>
+            </ul>
+
         <p style="margin: 0; font-size: 1rem;">
             Best regards,<br>
             <span style="font-weight: 500;">Accounts Receiveable Department</span>
         </p>
     </div>
-  
+   
     <div style="background: white; border-radius: 8px; padding: 40px; position: relative; overflow: hidden;">
         <!-- Company Info -->
         <div style="display: flex; justify-content: space-between; margin-bottom: 25px;">
@@ -83,58 +96,60 @@ const template = `
             </tr>
         </table>
 
-       <!-- Invoice Table -->
-        {{#has_serviceDate}}
-        <table cellpadding="0" cellspacing="0" style="width: 100%; border-collapse: separate; margin: 25px 0;">
-            <thead>
-            <tr>
-                <th style="border-bottom: 2px solid {{{primaryColor}}}; padding: 12px 24px; text-align: left; font-size: 0.875rem; font-weight: 600; color: #4b5563; text-transform: uppercase; letter-spacing: 0.05em; width: 10%;">DATE</th>
-                <th style="border-bottom: 2px solid {{{primaryColor}}}; padding: 12px 16px; text-align: left; font-size: 0.875rem; font-weight: 600; color: #4b5563; text-transform: uppercase; letter-spacing: 0.05em; width: 20%;">SERVICE</th>
-                <th style="border-bottom: 2px solid {{{primaryColor}}}; padding: 12px 16px; text-align: left; font-size: 0.875rem; font-weight: 600; color: #4b5563; text-transform: uppercase; letter-spacing: 0.05em; width: 42%;">DESCRIPTION</th>
-                <th style="border-bottom: 2px solid {{{primaryColor}}}; padding: 12px 16px; text-align: center; font-size: 0.875rem; font-weight: 600; color: #4b5563; text-transform: uppercase; letter-spacing: 0.05em; width: 8%;">QTY</th>
-                <th style="border-bottom: 2px solid {{{primaryColor}}}; padding: 12px 16px; text-align: center; font-size: 0.875rem; font-weight: 600; color: #4b5563; text-transform: uppercase; letter-spacing: 0.05em; width: 8%;">RATE</th>
-                <th style="border-bottom: 2px solid {{{primaryColor}}}; padding: 12px 16px; text-align: center; font-size: 0.875rem; font-weight: 600; color: #4b5563; text-transform: uppercase; letter-spacing: 0.05em; width: 12%;">AMOUNT</th>
-            </tr>
-            </thead>
-            <tbody>
-            {{#lineItem_list}}
-                <tr>
-                <td style="background-color: #F8FBFF; padding: 8px 12px; font-size: 0.875rem;">{{{serviceDate}}}</td>
-                <td style="background-color: #F8FBFF; padding: 8px 12px; font-size: 0.875rem;">{{{service}}}</td>
-                <td style="background-color: #F8FBFF; padding: 8px 0; font-size: 0.875rem;">{{{description}}}</td>
-                <td style="background-color: #F8FBFF; padding: 8px 12px; font-size: 0.875rem; text-align: center;">{{{quantity}}}</td>
-                <td style="background-color: #F8FBFF; padding: 8px 12px; font-size: 0.875rem; text-align: center;">{{{rate}}}</td>
-                <td style="background-color: #F8FBFF; padding: 8px 12px; font-size: 0.875rem; text-align: center;">{{{amount}}}</td>
-                </tr>
-            {{/lineItem_list}}
-            </tbody>
-        </table>
-        {{/has_serviceDate}}
+       
 
-        {{^has_serviceDate}}
-        <table cellpadding="0" cellspacing="0" style="width: 100%; border-collapse: separate; margin: 30px 0;">
-            <thead>
-            <tr>
-                <th style="border-bottom: 2px solid {{{primaryColor}}}; padding: 12px 24px; text-align: left; font-size: 0.875rem; font-weight: 600; color: #4b5563; text-transform: uppercase; letter-spacing: 0.05em; width: 20%;">SERVICE</th>
-                <th style="border-bottom: 2px solid {{{primaryColor}}}; padding: 12px 16px; text-align: left; font-size: 0.875rem; font-weight: 600; color: #4b5563; text-transform: uppercase; letter-spacing: 0.05em; width: 45%;">DESCRIPTION</th>
-                <th style="border-bottom: 2px solid {{{primaryColor}}}; padding: 12px 16px; text-align: center; font-size: 0.875rem; font-weight: 600; color: #4b5563; text-transform: uppercase; letter-spacing: 0.05em; width: 8%;">QTY</th>
-                <th style="border-bottom: 2px solid {{{primaryColor}}}; padding: 12px 16px; text-align: center; font-size: 0.875rem; font-weight: 600; color: #4b5563; text-transform: uppercase; letter-spacing: 0.05em; width: 12%;">RATE</th>
-                <th style="border-bottom: 2px solid {{{primaryColor}}}; padding: 12px 16px; text-align: center; font-size: 0.875rem; font-weight: 600; color: #4b5563; text-transform: uppercase; letter-spacing: 0.05em; width: 15%;">AMOUNT</th>
-            </tr>
-            </thead>
-            <tbody>
-            {{#lineItem_list}}
-                <tr>
-                <td style="background-color: #F8FBFF; padding: 8px 12px; text-align: left; width: 20%; font-size: 0.875rem;">{{{service}}}</td>
-                <td style="background-color: #F8FBFF; padding: 8px 12px; text-align: left; width: 45%; font-size: 0.875rem;">{{{description}}}</td>
-                <td style="background-color: #F8FBFF; padding: 8px 12px; text-align: center; width: 8%; font-size: 0.875rem;">{{{quantity}}}</td>
-                <td style="background-color: #F8FBFF; padding: 8px 12px; text-align: center; width: 12%; font-size: 0.875rem;">{{{rate}}}</td>
-                <td style="background-color: #F8FBFF; padding: 8px 12px; text-align: center; width: 15%; font-size: 0.875rem;">{{{amount}}}</td>
-                </tr>
-            {{/lineItem_list}}
-            </tbody>
-        </table>
-        {{/has_serviceDate}} 
+       <!-- Invoice Table -->
+       {{#has_serviceDate}}
+       <table cellpadding="0" cellspacing="0" style="width: 100%; border-collapse: separate; margin: 25px 0;">
+           <thead>
+           <tr>
+               <th style="border-bottom: 2px solid {{{primaryColor}}}; padding: 12px 24px; text-align: left; font-size: 0.875rem; font-weight: 600; color: #4b5563; text-transform: uppercase; letter-spacing: 0.05em; width: 10%;">DATE</th>
+               <th style="border-bottom: 2px solid {{{primaryColor}}}; padding: 12px 16px; text-align: left; font-size: 0.875rem; font-weight: 600; color: #4b5563; text-transform: uppercase; letter-spacing: 0.05em; width: 20%;">SERVICE</th>
+               <th style="border-bottom: 2px solid {{{primaryColor}}}; padding: 12px 16px; text-align: left; font-size: 0.875rem; font-weight: 600; color: #4b5563; text-transform: uppercase; letter-spacing: 0.05em; width: 42%;">DESCRIPTION</th>
+               <th style="border-bottom: 2px solid {{{primaryColor}}}; padding: 12px 16px; text-align: center; font-size: 0.875rem; font-weight: 600; color: #4b5563; text-transform: uppercase; letter-spacing: 0.05em; width: 8%;">QTY</th>
+               <th style="border-bottom: 2px solid {{{primaryColor}}}; padding: 12px 16px; text-align: center; font-size: 0.875rem; font-weight: 600; color: #4b5563; text-transform: uppercase; letter-spacing: 0.05em; width: 8%;">RATE</th>
+               <th style="border-bottom: 2px solid {{{primaryColor}}}; padding: 12px 16px; text-align: center; font-size: 0.875rem; font-weight: 600; color: #4b5563; text-transform: uppercase; letter-spacing: 0.05em; width: 12%;">AMOUNT</th>
+           </tr>
+           </thead>
+           <tbody>
+           {{#lineItem_list}}
+               <tr>
+               <td style="background-color: #F8FBFF; padding: 8px 12px; font-size: 0.875rem;">{{{serviceDate}}}</td>
+               <td style="background-color: #F8FBFF; padding: 8px 12px; font-size: 0.875rem;">{{{service}}}</td>
+               <td style="background-color: #F8FBFF; padding: 8px 0; font-size: 0.875rem;">{{{description}}}</td>
+               <td style="background-color: #F8FBFF; padding: 8px 12px; font-size: 0.875rem; text-align: center;">{{{quantity}}}</td>
+               <td style="background-color: #F8FBFF; padding: 8px 12px; font-size: 0.875rem; text-align: center;">{{{rate}}}</td>
+               <td style="background-color: #F8FBFF; padding: 8px 12px; font-size: 0.875rem; text-align: center;">{{{amount}}}</td>
+               </tr>
+           {{/lineItem_list}}
+           </tbody>
+       </table>
+       {{/has_serviceDate}}
+
+       {{^has_serviceDate}}
+       <table cellpadding="0" cellspacing="0" style="width: 100%; border-collapse: separate; margin: 30px 0;">
+           <thead>
+           <tr>
+               <th style="border-bottom: 2px solid {{{primaryColor}}}; padding: 12px 24px; text-align: left; font-size: 0.875rem; font-weight: 600; color: #4b5563; text-transform: uppercase; letter-spacing: 0.05em; width: 20%;">SERVICE</th>
+               <th style="border-bottom: 2px solid {{{primaryColor}}}; padding: 12px 16px; text-align: left; font-size: 0.875rem; font-weight: 600; color: #4b5563; text-transform: uppercase; letter-spacing: 0.05em; width: 45%;">DESCRIPTION</th>
+               <th style="border-bottom: 2px solid {{{primaryColor}}}; padding: 12px 16px; text-align: center; font-size: 0.875rem; font-weight: 600; color: #4b5563; text-transform: uppercase; letter-spacing: 0.05em; width: 8%;">QTY</th>
+               <th style="border-bottom: 2px solid {{{primaryColor}}}; padding: 12px 16px; text-align: center; font-size: 0.875rem; font-weight: 600; color: #4b5563; text-transform: uppercase; letter-spacing: 0.05em; width: 12%;">RATE</th>
+               <th style="border-bottom: 2px solid {{{primaryColor}}}; padding: 12px 16px; text-align: center; font-size: 0.875rem; font-weight: 600; color: #4b5563; text-transform: uppercase; letter-spacing: 0.05em; width: 15%;">AMOUNT</th>
+           </tr>
+           </thead>
+           <tbody>
+           {{#lineItem_list}}
+               <tr>
+               <td style="background-color: #F8FBFF; padding: 8px 12px; text-align: left; width: 20%; font-size: 0.875rem;">{{{service}}}</td>
+               <td style="background-color: #F8FBFF; padding: 8px 12px; text-align: left; width: 45%; font-size: 0.875rem;">{{{description}}}</td>
+               <td style="background-color: #F8FBFF; padding: 8px 12px; text-align: center; width: 8%; font-size: 0.875rem;">{{{quantity}}}</td>
+               <td style="background-color: #F8FBFF; padding: 8px 12px; text-align: center; width: 12%; font-size: 0.875rem;">{{{rate}}}</td>
+               <td style="background-color: #F8FBFF; padding: 8px 12px; text-align: center; width: 15%; font-size: 0.875rem;">{{{amount}}}</td>
+               </tr>
+           {{/lineItem_list}}
+           </tbody>
+       </table>
+       {{/has_serviceDate}} 
 
         <!-- Totals Section -->
         <table cellpadding="0" cellspacing="0" style="width: 100%; margin-top: 30px;">
@@ -247,27 +262,27 @@ const data = {
       description:
         "Southern Ionics Incorporated - INSPYR-2024-12-30-11 - Fidelity_401K Import",
       quantity: "1",
-      rate: "$1800.00",
-      amount: "$1800.00",
+      rate: "1800.00",
+      amount: "1800.00",
     },
   ],
-  subTotal: "$1880.0",
+  subTotal: "1880.0",
   has_subTotal: false,
   discounts: "",
   has_discounts: false,
-  totalTax: "$5.00",
+  totalTax: "5",
   has_totalTax: false,
-  totalAmount: "$1880.00",
+  totalAmount: "1880.00",
   amountPaid: "",
   has_amountPaid: false,
-  balanceDue: "$1880.00",
+  balanceDue: "1880.00",
   customMessage: "Thank you for your business and have a great day!",
-  has_overdue: false,
+  has_overdue: true,
   primaryColor: "#0068FF",
 };
 
 function regenerate() {
-  generateAndSaveHTML(template, data, "invoice1");
+  generateAndSaveHTML(template, data, "invoice6");
 }
 
 setupWatcher(regenerate);

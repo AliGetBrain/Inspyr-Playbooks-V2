@@ -21,31 +21,30 @@ const template = `
             </tr>
             <tr>
               <td>
-                <h2 style="margin: 0 0 15px 0; font-weight: 600; letter-spacing: 0.025em;"><span style="color: {{{primaryColor}}};">NEW</span> INVOICE RECORD</h2>
+                <h2 style="margin: 0 0 15px 0; font-weight: 600; letter-spacing: 0.025em;">INVOICE PAYMENT<span style="color: {{primaryColor}};"> DUE SOON</span></h2>
               </td>
             </tr>
         </table>
     </div>  
-     
-    <!-- Message Section -->
+    
+       <!-- Message Section -->
     <div style="margin-bottom: 12px; padding: 24px; background-color: white; border-radius: 8px; color: #4b5563; font-family: Arial, Helvetica, sans-serif;">
         <p style="margin: 0 0 16px 0; font-size: 1rem; font-weight: 500;">Hello,</p>
-
+        
         <p style="margin: 0 0 16px 0; font-size: 1rem; line-height: 1.6;">
-            I hope you're doing well! Please find attached <span style="font-weight: 600; color: #4b5563;">Invoice #{{{invoiceNumber}}}</span> for your records. <br>
-            This invoice is due on <span style="font-weight: 600; color: #4b5563;">{{{dueDate}}}</span>. Let us know if you have any questions—we're happy to help.
+           This is a friendly reminder that <span style="font-weight: 600; color: #374151;">Invoice #{{invoiceNumber}}</span> is due in a few days on <span style="font-weight: 600; color: #374151;">{{dueDate}}</span>.
         </p>
         
         <p style="margin: 0 0 16px 0; font-size: 1rem; line-height: 1.6;">
-          <strong> If any changes are required to the invoice delivery email, please be sure to 'Reply All' to this communication. </strong>
+            Please let us know if anything additional is required to process this invoice.
         </p>
-       
+
         <p style="margin: 0; font-size: 1rem;">
             Best regards,<br>
             <span style="font-weight: 500;">Accounts Receiveable Department</span>
         </p>
-    </div>
-  
+    </div> 
+
     <div style="background: white; border-radius: 8px; padding: 40px; position: relative; overflow: hidden;">
         <!-- Company Info -->
         <div style="display: flex; justify-content: space-between; margin-bottom: 25px;">
@@ -247,27 +246,27 @@ const data = {
       description:
         "Southern Ionics Incorporated - INSPYR-2024-12-30-11 - Fidelity_401K Import",
       quantity: "1",
-      rate: "$1800.00",
-      amount: "$1800.00",
+      rate: "1800.00",
+      amount: "1800.00",
     },
   ],
-  subTotal: "$1880.0",
+  subTotal: "1880.0",
   has_subTotal: false,
   discounts: "",
   has_discounts: false,
-  totalTax: "$5.00",
+  totalTax: "5",
   has_totalTax: false,
-  totalAmount: "$1880.00",
+  totalAmount: "1880.00",
   amountPaid: "",
   has_amountPaid: false,
-  balanceDue: "$1880.00",
+  balanceDue: "1880.00",
   customMessage: "Thank you for your business and have a great day!",
   has_overdue: false,
   primaryColor: "#0068FF",
 };
 
 function regenerate() {
-  generateAndSaveHTML(template, data, "invoice1");
+  generateAndSaveHTML(template, data, "invoice4");
 }
 
 setupWatcher(regenerate);
