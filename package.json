@@ -11,7 +11,8 @@
     "dev:invoice4": "nodemon Email-Templates/invoice4.js",
     "dev:invoice5": "nodemon Email-Templates/invoice5.js",
     "dev:invoice6": "nodemon Email-Templates/invoice6.js",
-    "dev:invoice7": "nodemon Email-Templates/invoice7.js"
+    "dev:invoice7": "nodemon Email-Templates/invoice7.js",
+    "dev:callSummary": "nodemon Email-Templates/callSummary.js"
   },
   "author": "",
   "license": "ISC",
