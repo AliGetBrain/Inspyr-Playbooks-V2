@@ -12,7 +12,11 @@
     "dev:invoice5": "nodemon Email-Templates/invoice5.js",
     "dev:invoice6": "nodemon Email-Templates/invoice6.js",
     "dev:invoice7": "nodemon Email-Templates/invoice7.js",
-    "dev:callSummary": "nodemon Email-Templates/callSummary.js"
+    "dev:callSummary": "nodemon Email-Templates/callSummary.js",
+    "dev:paymentCheck": "nodemon Email-Templates/paymentCheck.js",
+    "dev:missed1": "nodemon Email-Templates/firstMissedCall.js",
+    "dev:missed2": "nodemon Email-Templates/secondMissedCall.js",
+    "dev:missed3": "nodemon Email-Templates/thirdMissedCall.js"
   },
   "author": "",
   "license": "ISC",
