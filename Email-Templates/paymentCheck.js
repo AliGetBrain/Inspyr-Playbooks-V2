@@ -74,12 +74,12 @@ Due Date
 </td>
 <td style="padding: 16px; width: 33%; vertical-align: top; text-align: center;">
 <p style="margin: 0; font-size: 16px; color: #333333; font-weight: 600;">
-{{ amount}}
+{{amount}}
 </p>
 </td>
 <td style="padding: 16px; width: 33%; vertical-align: top; text-align: center;">
 <p style="margin: 0; font-size: 16px; color: #e74c3c; font-weight: 600;">
-{{ dueDate}}
+{{dueDate}}
 </p>
 </td>
 </tr>
